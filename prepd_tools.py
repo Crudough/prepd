@@ -30,7 +30,7 @@ def find(JSON, keywords):
     match = []
     for item in JSON["items"]:
         for word in keywords:
-            if word in item["name"]:
+            if word.upper() in item["name"].upper():
                 match.append(item)
     v = {"items": match }
     return v
