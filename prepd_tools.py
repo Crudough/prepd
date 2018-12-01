@@ -19,7 +19,7 @@ def get_IMG(JSON):
     imgs = []
     for arg in JSON["items"]: 
         imgs.append(arg["clipping_image_url"])
-    print(imgs)
+    #print(imgs)
 
 
 '''
