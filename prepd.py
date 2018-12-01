@@ -15,11 +15,19 @@ def thePass():
 @app.route('/find-ingredients', methods=['GET', 'POST'])
 def findingredients():
 	if request.method == 'POST':
+		j = prepd_tools.get_JSON('english', '*', 'M9B4J6')
 		result = request.form['ingredients']
-		print(result)
-		return render_template('find_ingredients.html', searched=True)
+		result = "".join(result.split())
+		result = result.split(',')
+		find = prepd_tools.find(result, j)
+		imgs = prepd_tools.get_img(find)
+		names = prepd_tools.get_name(find)
+		length = len(imgs)
+		print(names)
+		return render_template('find_ingredients.html', searched=True, images=imgs,
+								names=names, length=length)
 
-	return render_template('find_ingredients.html', searched=False)
+	return render_template('find_ingredients.html', searched=False, results=None)
 
 @app.route('/metro-flyer')
 def metro():
