@@ -22,19 +22,39 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
     <a href="#" class="w3-bar-item w3-button">Home</a>
     <a href="#" class="w3-bar-item w3-button">Recipes</a>
-    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+    <a onclick="myAccFunc('demoAcc')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
       Flyers <i class="fa fa-caret-down"></i>
     </a>
     <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Groceries</a>
-      <a href="#" class="w3-bar-item w3-button">Hardware</a>
-      <a href="#" class="w3-bar-item w3-button">Sports</a>
+      <!--<a href="#" class="w3-bar-item w3-button w3-light-grey">Groceries</a>-->
+      <a onclick="myAccFunc('demoAcc2')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        Groceries <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="demoAcc2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+        <a href="#" class="w3-bar-item w3-button">Metro</a>
+        <a href="#" class="w3-bar-item w3-button">Superstore</a>
+        <a href="#" class="w3-bar-item w3-button">Sobeys</a>
+        <a href="#" class="w3-bar-item w3-button">No Frills</a>
+      </div>
+      <a onclick="myAccFunc('demoAcc3')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        Technology <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="demoAcc3" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+        <a href="#" class="w3-bar-item w3-button">The Source</a>
+        <a href="#" class="w3-bar-item w3-button">Newegg</a>
+        <a href="#" class="w3-bar-item w3-button">Best Buy</a>
+      </div>
+      <a onclick="myAccFunc('demoAcc3')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        Furniture/Hardware <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="demoAcc3" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+        <a href="#" class="w3-bar-item w3-button">Ikea</a>
+        <a href="#" class="w3-bar-item w3-button">Home Hardware</a>
+        <a href="#" class="w3-bar-item w3-button">Home Depot</a>
+      </div>
       <a href="#" class="w3-bar-item w3-button">Clothing</a>
     </div>
-    <a href="#" class="w3-bar-item w3-button">The Pass</a>
-    <a href="#" class="w3-bar-item w3-button">Gymwear</a>
-    <a href="#" class="w3-bar-item w3-button">Blazers</a>
-    <a href="#" class="w3-bar-item w3-button">Shoes</a>
+    <a href="{{ url_for('thePass') }}" class="w3-bar-item w3-button">The Pass</a>
   </div>
   <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
@@ -58,7 +78,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   
   <!-- Top header -->
   <header class="w3-container w3-xlarge">
-    <p class="w3-left">Jeans</p>
+    <p class="w3-left">Home</p>
     <p class="w3-right">
       <i class="fa fa-shopping-cart w3-margin-right"></i>
       <i class="fa fa-search"></i>
@@ -67,77 +87,132 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
   <!-- Image header -->
   <div class="w3-display-container w3-container">
-    <img src="/static/images/recipes_header.jpg" alt="Recipes" style="width:100%">
+    <img src="/static/images/cookies_header.jpg" alt="Recipes" style="width:100%">
     <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
-      <h1 class="w3-jumbo w3-hide-small">New arrivals</h1>
-      <h1 class="w3-hide-large w3-hide-medium">New arrivals</h1>
-      <h1 class="w3-hide-small">COLLECTION 2016</h1>
-      <p><a href="#jeans" class="w3-button w3-black w3-padding-large w3-large">SHOP NOW</a></p>
+      <h1 class="w3-jumbo w3-hide-small">New Recipes</h1>
+      <h1 class="w3-hide-large w3-hide-medium">New Recipes</h1>
+      <h1 class="w3-hide-small">HOLIDAY 2018</h1>
+      <p><a href="#trending" class="w3-button w3-black w3-padding-large w3-large">NOW TRENDING</a></p>
     </div>
   </div>
 
-  <div class="w3-container w3-text-grey" id="jeans">
-    <p>8 items</p>
+  <div class="w3-container w3-text-grey" id="trending">
+    <p>Trending Recipes</p>
   </div>
 
   <!-- Product grid -->
-  <div class="w3-row w3-grayscale">
+  <div class="w3-row">
     <div class="w3-col l3 s6">
       <div class="w3-container">
-        <img src="/w3images/jeans1.jpg" style="width:100%">
-        <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+        <div class="w3-display-container">
+          <img src="/static/images/trending1.jpg" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+              <button class="w3-button w3-black">Recipe
+              </button>
+          </div>
+          <p>Roasted Christmas Ham<br><b>$24.99</b></p>
+        </div>
       </div>
       <div class="w3-container">
-        <img src="/w3images/jeans2.jpg" style="width:100%">
-        <p>Mega Ripped Jeans<br><b>$19.99</b></p>
+        <div class="w3-display-container">
+          <img src="/static/images/trending2.jpg" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+              <button class="w3-button w3-black">Recipe
+              </button>
+          </div>
+        </div>
+        <p>Holiday Sugar Cookies<br><b>$19.99</b></p>
+      </div>
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="/static/images/trending6.jpg" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+              <button class="w3-button w3-black">Recipe
+              </button>
+          </div>
+        </div>
+        <p>Roasted Root Vegetables<br><b>$19.99</b></p>
       </div>
     </div>
 
     <div class="w3-col l3 s6">
       <div class="w3-container">
         <div class="w3-display-container">
-          <img src="/w3images/jeans2.jpg" style="width:100%">
+          <img src="/static/images/trending3.jpg" style="width:100%">
           <span class="w3-tag w3-display-topleft">New</span>
           <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+            <button class="w3-button w3-black">Recipe
+            </button>
           </div>
         </div>
-        <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-      </div>
-      <div class="w3-container">
-        <img src="/w3images/jeans3.jpg" style="width:100%">
-        <p>Washed Skinny Jeans<br><b>$20.50</b></p>
-      </div>
-    </div>
-
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <img src="/w3images/jeans3.jpg" style="width:100%">
-        <p>Washed Skinny Jeans<br><b>$20.50</b></p>
+        <p>Roast Turkey with Stuffing<br><b>$19.99</b></p>
       </div>
       <div class="w3-container">
         <div class="w3-display-container">
-          <img src="/w3images/jeans4.jpg" style="width:100%">
-          <span class="w3-tag w3-display-topleft">Sale</span>
+          <img src="/static/images/trending4.jpg" style="width:100%">
           <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+                <button class="w3-button w3-black">Recipe
+                </button>
           </div>
         </div>
-        <p>Vintage Skinny Jeans<br><b class="w3-text-red">$14.99</b></p>
+        <p>Potato Latkes<br><b>$20.50</b></p>
       </div>
     </div>
 
     <div class="w3-col l3 s6">
       <div class="w3-container">
-        <img src="/w3images/jeans4.jpg" style="width:100%">
-        <p>Vintage Skinny Jeans<br><b>$14.99</b></p>
+        <div class="w3-display-container">
+          <img src="/static/images/cookies_header.jpg" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+              <button class="w3-button w3-black">Recipe
+              </button>
+          </div>
+        </div>
+        <p>Jam Filled Shortbread<br><b>$20.50</b></p>
       </div>
       <div class="w3-container">
-        <img src="/w3images/jeans1.jpg" style="width:100%">
-        <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+        <div class="w3-display-container">
+          <img src="/static/images/trending5.jpg" style="width:100%">
+          <span class="w3-tag w3-display-topleft">Featured</span>
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Recipe
+            </button>
+          </div>
+        </div>
+        <p>Yule Log<br><b class="w3-text-red">$14.99</b></p>
       </div>
     </div>
+
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="/static/images/trending8.jpg" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+              <button class="w3-button w3-black">Recipe
+              </button>
+          </div>
+        </div>
+        <p>White Hot Chocolate<br><b>$14.99</b></p>
+      </div>
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="/static/images/trending7.jpg" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+              <button class="w3-button w3-black">Recipe
+              </button>
+          </div>
+        </div>
+        <p>Roasted Chestnuts<br><b>$24.99</b></p>
+        
+      </div>
+
+    </div>
+
   </div>
+  <div class="w3-padding-64 w3-center">
+              <button class="w3-button w3-black">Go to All Recipes
+              </button>
+        </div>
 
   <!-- Subscribe section -->
   <div class="w3-container w3-black w3-padding-32">
@@ -168,21 +243,15 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         <p><a href="#">We're hiring</a></p>
         <p><a href="#">Support</a></p>
         <p><a href="#">Find store</a></p>
-        <p><a href="#">Shipment</a></p>
-        <p><a href="#">Payment</a></p>
-        <p><a href="#">Gift card</a></p>
-        <p><a href="#">Return</a></p>
         <p><a href="#">Help</a></p>
       </div>
 
       <div class="w3-col s4 w3-justify">
-        <h4>Store</h4>
-        <p><i class="fa fa-fw fa-map-marker"></i> Company Name</p>
-        <p><i class="fa fa-fw fa-phone"></i> 0044123123</p>
-        <p><i class="fa fa-fw fa-envelope"></i> ex@mail.com</p>
-        <h4>We accept</h4>
-        <p><i class="fa fa-fw fa-cc-amex"></i> Amex</p>
-        <p><i class="fa fa-fw fa-credit-card"></i> Credit Card</p>
+        <h4>Bonnudo</h4>
+        <p><i class="fa fa-fw fa-map-marker"></i>Bonnudo</p>
+        <p><i class="fa fa-fw fa-phone"></i> (123) 456-7890</p>
+        <p><i class="fa fa-fw fa-envelope"></i> help@prepd.com</p>
+        
         <br>
         <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
         <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
@@ -214,8 +283,16 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
 <script>
 // Accordion 
-function myAccFunc() {
-    var x = document.getElementById("demoAcc");
+function myAccFunc(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+function myAccFunc2(id) {
+    var x = document.getElementById(id);
     if (x.className.indexOf("w3-show") == -1) {
         x.className += " w3-show";
     } else {
