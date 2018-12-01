@@ -19,31 +19,28 @@ def get_img(JSON):
     imgs = []
     for arg in JSON["items"]: 
         imgs.append(arg["clipping_image_url"])
-    return imgs
-    #print(imgs)
+    #return imgs
+    print(imgs)
 
 
 
 def get_name(JSON):
     names = []
+    imgs = []
     for arg in JSON["items"]:
         names.append(arg["name"])
-    return names
-    #print(names)
+        imgs.append(arg["clipping_image_url"])
+    #return names, imgs
+    print(names)
+    print(imgs)
 
+def find(keywords, JSON):
+    names = get_name(JSON)
+    match = []
+    for word in keywords:
+        for name in names:
+            if word in name:
+                match.append(name)
+    print(match)
 
-
-#'''
-print("-------------------------- starting script ------------------------------------")
-code = "V9L6A8"         #input("please enter postal code: ")
-store = "superstore"    #input("please enter prefered store: ")
-locale = "francais"     #input("please enter locale: ")
-b = get_JSON(locale, store, code)
-#print (b)
-flyer_JSON = json.loads(b)
-
-get_img(flyer_JSON)
-get_name(flyer_JSON)
-print("--------------------------- ending  script ------------------------------------")
-#'''
 
