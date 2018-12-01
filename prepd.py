@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 import prepd_tools
 import json 
 evan = "V9L6A8"
@@ -11,6 +11,15 @@ def prepd():
 @app.route('/the-pass')
 def thePass():
 	return render_template('pass.html')
+
+@app.route('/find-ingredients', methods=['GET', 'POST'])
+def findingredients():
+	if request.method == 'POST':
+		result = request.form['ingredients']
+		print(result)
+		return render_template('find_ingredients.html', searched=True)
+
+	return render_template('find_ingredients.html', searched=False)
 
 @app.route('/metro-flyer')
 def metro():
