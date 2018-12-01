@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for
 import prepd_tools
+import json 
 
 app = Flask(__name__)
 
@@ -14,9 +15,9 @@ def thePass():
 @app.route('/metro-flyer')
 def metro():
 	store = 'Metro'
-	json = prepd_tools.get_JSON('english', 'metro', 'K7L4A5')
-	images = prepd_tools.get_img(json)
-	names = prepd_tools.get_name(json)
+	j = prepd_tools.get_JSON('english', 'metro', 'K7L4A5')
+	#images = prepd_tools.get_img(json)
+	names, imgs = prepd_tools.get_name(j)
 	return render_template('flyer.html', store=store, images=images, names=names)
 
 @app.route('/superstore-flyer')
