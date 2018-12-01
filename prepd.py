@@ -14,17 +14,38 @@ def thePass():
 
 @app.route('/find-ingredients', methods=['GET', 'POST'])
 def findingredients():
+	names = []
+	images = []
 	if request.method == 'POST':
-		j = prepd_tools.get_JSON('english', '*', 'M9B4J6')
+		j1 = prepd_tools.get_JSON('english', 'superstore', 'M9B4J6')
+		j2 = prepd_tools.get_JSON('english', 'metro', 'M9B4J6')
+		j3 = prepd_tools.get_JSON('english', 'sobeys', 'M9B4J6')
+		j4 = prepd_tools.get_JSON('english', 'nofrills', 'M9B4J6')
 		result = request.form['ingredients']
+		result = result.upper()
 		result = "".join(result.split())
 		result = result.split(',')
-		find = prepd_tools.find(result, j)
-		imgs = prepd_tools.get_img(find)
-		names = prepd_tools.get_name(find)
-		length = len(imgs)
-		print(names)
-		return render_template('find_ingredients.html', searched=True, images=imgs,
+		print(result)
+
+		find1 = prepd_tools.find(j1, result)
+		imgs1 = prepd_tools.get_img(find1)
+		names1 = prepd_tools.get_name(find1)
+		find2 = prepd_tools.find(j2, result)
+		imgs2 = prepd_tools.get_img(find2)
+		names2 = prepd_tools.get_name(find2)
+		find3 = prepd_tools.find(j3, result)
+		imgs3 = prepd_tools.get_img(find3)
+		names3 = prepd_tools.get_name(find3)
+		find4 = prepd_tools.find(j4, result)
+		imgs4 = prepd_tools.get_img(find4)
+		names4 = prepd_tools.get_name(find4)
+
+		names.extend(names1+names2+names3+names4)
+		images.extend(imgs1+imgs2+imgs3+imgs4)
+
+
+		length = len(images)
+		return render_template('find_ingredients.html', searched=True, images=images,
 								names=names, length=length)
 
 	return render_template('find_ingredients.html', searched=False, results=None)
