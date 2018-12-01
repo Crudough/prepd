@@ -28,7 +28,6 @@ def get_name(JSON):
     names = []
     for arg in JSON["items"]:
         names.append(arg["name"])
-        imgs.append(arg["clipping_image_url"])
     return names
     #print(names)
     #print(imgs)
