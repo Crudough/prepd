@@ -28,6 +28,55 @@
 		</form>
   	</div>
 
+    {% if searched %}
+    <div class="container">
+      {% if length==0 %}
+        <p class="w3-left">Your items aren't currently on sale.</p>
+      {% endif %}
+    <div class="w3-row">
+      <div class="w3-col l3 s6">
+        {% for i in range(length//4) %}
+        <div class="w3-container">
+          <div class="w3-display-container">
+            <img src="{{ images[i] }}" style="width:100%">
+            <p>{{ names[i] }}<br></p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="w3-col l3 s6">
+        {% for i in range(length//4, (length//4)*2) %}
+        <div class="w3-container">
+          <div class="w3-display-container">
+            <img src="{{ images[i] }}" style="width:100%">
+            <p>{{ names[i] }}<br></p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="w3-col l3 s6">
+        {% for i in range((length//4)*2, (length//4)*3) %}
+        <div class="w3-container">
+          <div class="w3-display-container">
+            <img src="{{ images[i] }}" style="width:100%">
+            <p>{{ names[i] }}<br></p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="w3-col l3 s6">
+        {% for i in range((length//4)*3, length) %}
+        <div class="w3-container">
+          <div class="w3-display-container">
+            <img src="{{ images[i] }}" style="width:100%">
+            <p>{{ names[i] }}<br></p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
 <script>
 // Script to open and close sidebar
 function w3_open() {
