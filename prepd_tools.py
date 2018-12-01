@@ -33,4 +33,4 @@ def find(keywords, JSON):
             if word in item["name"]:
                 match.append(item)
     v = { "items": match }
-    return json.dumps(v)
+    return v         #json.loads(json.dumps(v))
