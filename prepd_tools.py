@@ -11,7 +11,6 @@ def get_JSON(locale, store, code):
             
 
 
-
 def get_img(JSON):
     imgs = []
     for arg in JSON["items"]: 
@@ -26,11 +25,13 @@ def get_name(JSON):
         names.append(arg["name"])
     return names
 
-def find(keywords, JSON):
+
+def find(JSON, keywords):
     match = []
     for item in JSON["items"]:
         for word in keywords:
             if word in item["name"]:
                 match.append(item)
-    v = { "items": match }
-    return v         #json.loads(json.dumps(v))
+    v = {"items": match }
+    return v
+
