@@ -10,7 +10,7 @@ def get_JSON(locale, store, code):
     #print(url)
     flyer = req.urlopen(url)
     #print(flyer.read())
-    return flyer.read()        
+    return json.loads(flyer.read())        
             
 
 
@@ -19,20 +19,19 @@ def get_img(JSON):
     imgs = []
     for arg in JSON["items"]: 
         imgs.append(arg["clipping_image_url"])
-    #return imgs
-    print(imgs)
+    return imgs
+    #print(imgs)
 
 
 
 def get_name(JSON):
     names = []
-    imgs = []
     for arg in JSON["items"]:
         names.append(arg["name"])
         imgs.append(arg["clipping_image_url"])
-    #return names, imgs
-    print(names)
-    print(imgs)
+    return names
+    #print(names)
+    #print(imgs)
 
 def find(keywords, JSON):
     names = get_name(JSON)
