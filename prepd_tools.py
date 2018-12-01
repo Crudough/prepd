@@ -19,6 +19,7 @@ def get_img(JSON):
     imgs = []
     for arg in JSON["items"]: 
         imgs.append(arg["clipping_image_url"])
+    return imgs
     #print(imgs)
 
 
@@ -27,6 +28,7 @@ def get_name(JSON):
     names = []
     for arg in JSON["items"]:
         names.append(arg["name"])
+    return names
     #print(names)
 
 
