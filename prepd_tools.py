@@ -16,8 +16,11 @@ def get_JSON(locale, store, code):
 
 
 def get_IMG(JSON):
+    imgs = []
     for arg in JSON["items"]: 
-        print(arg["clipping_image_url"])
+        imgs.append(arg["clipping_image_url"])
+    print(imgs)
+
 
 '''
 print("-------------------------- starting script ------------------------------------")
