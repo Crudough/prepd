@@ -15,14 +15,23 @@ def get_JSON(locale, store, code):
 
 
 
-def get_IMG(JSON):
+def get_img(JSON):
     imgs = []
     for arg in JSON["items"]: 
         imgs.append(arg["clipping_image_url"])
     #print(imgs)
 
 
-'''
+
+def get_name(JSON):
+    names = []
+    for arg in JSON["items"]:
+        names.append(arg["name"])
+    #print(names)
+
+
+
+#'''
 print("-------------------------- starting script ------------------------------------")
 code = "V9L6A8"         #input("please enter postal code: ")
 store = "superstore"    #input("please enter prefered store: ")
@@ -31,8 +40,8 @@ b = get_JSON(locale, store, code)
 #print (b)
 flyer_JSON = json.loads(b)
 
-get_IMG(flyer_JSON)
-
+get_img(flyer_JSON)
+get_name(flyer_JSON)
 print("--------------------------- ending  script ------------------------------------")
-'''
+#'''
 
