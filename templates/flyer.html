@@ -13,25 +13,55 @@
   
   <!-- Top header -->
   <header class="w3-container w3-xlarge">
-    <p class="w3-left">The Pass</p>
+    <p class="w3-left">{{ store }}</p>
     <p class="w3-right">
       <i class="fa fa-shopping-cart w3-margin-right"></i>
       <i class="fa fa-search"></i>
     </p>
-  </header>
-  {% for i in range(len(images)) %}
-    <div class="card-deck">
-      <div class="card">
-        <img class="card-img-top" src="{{ images[i] }}" alt="Card image cap">
-        <div class="card-body">
-        <h4 class="card-title">{{ names[i] }}</h4>
-        <p class="card-text">Here is a longer description of the card and the height will be auto aligned with flex box.</p>
+  <div class="container">
+    <div class="w3-row">
+      <div class="w3-col l3 s6">
+        {% for i in range(length//4) %}
+        <div class="w3-container">
+          <div class="w3-display-container">
+            <img src="{{ images[i] }}" style="width:100%">
+            <p>{{ names[i] }}<br></p>
+          </div>
+        </div>
+        {% endfor %}
       </div>
-      <div class="card-footer">
-        <small class="text-muted">Here is a footer</small>
+      <div class="w3-col l3 s6">
+        {% for i in range(length//4, (length//4)*2) %}
+        <div class="w3-container">
+          <div class="w3-display-container">
+            <img src="{{ images[i] }}" style="width:100%">
+            <p>{{ names[i] }}<br></p>
+          </div>
+        </div>
+        {% endfor %}
       </div>
-    </div>
-  {% endfor %}
+      <div class="w3-col l3 s6">
+        {% for i in range((length//4)*2, (length//4)*3) %}
+        <div class="w3-container">
+          <div class="w3-display-container">
+            <img src="{{ images[i] }}" style="width:100%">
+            <p>{{ names[i] }}<br></p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="w3-col l3 s6">
+        {% for i in range((length//4)*3, length) %}
+        <div class="w3-container">
+          <div class="w3-display-container">
+            <img src="{{ images[i] }}" style="width:100%">
+            <p>{{ names[i] }}<br></p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+  </div>
 </div>
 
 <script>
@@ -49,6 +79,41 @@ function w3_close() {
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</script>
+
+<script>
+// Accordion 
+function myAccFunc(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+function myAccFunc2(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
+
+
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
 </script>
 
 </body>
