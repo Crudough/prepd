@@ -13,12 +13,26 @@
   
   <!-- Top header -->
   <header class="w3-container w3-xlarge">
-    <p class="w3-left">{{ store }}</p>
+    <p class="w3-left">Find the best ingredients, for the best price</p>
     <p class="w3-right">
       <i class="fa fa-shopping-cart w3-margin-right"></i>
       <i class="fa fa-search"></i>
     </p>
-  <div class="container">
+    <br><br><br><br>
+    <div class="w3-container w3-black w3-padding-32">
+    	<form method="POST">
+		    <h2>Ingredients</h2>
+		    <p>Enter your ingredients separated by commas:</p>
+		    <p><input class="w3-input w3-border" type="text" placeholder="e.x. chicken, garlic" name='ingredients' style="width:100%"></p>
+		    <button type="submit" class="w3-button w3-red w3-margin-bottom">Find Deals</button>
+		</form>
+  	</div>
+
+    {% if searched %}
+    <div class="container">
+      {% if length==0 %}
+        <p class="w3-left">Your items aren't currently on sale.</p>
+      {% endif %}
     <div class="w3-row">
       <div class="w3-col l3 s6">
         {% for i in range(length//4) %}
@@ -60,9 +74,8 @@
         </div>
         {% endfor %}
       </div>
-
-  </div>
-</div>
+    </div>
+    {% endif %}
 
 <script>
 // Script to open and close sidebar

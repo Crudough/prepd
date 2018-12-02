@@ -17,10 +17,11 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
   <div class="w3-container w3-display-container w3-padding-16">
     <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-    <h3 href="{{ url_for('prepd') }}" class="w3-wide"><b>PREPD</b></h3>
+    <h3 class="w3-wide"><a href="{{ url_for('prepd') }}"><b>PREPD</b></a></h3>
   </div>
   <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
     <a href="{{ url_for('prepd') }}" class="w3-bar-item w3-button">Home</a>
+    <a href="{{ url_for('findingredients') }}" class="w3-bar-item w3-button">Find Ingredients</a>
     <a href="#" class="w3-bar-item w3-button">Recipes</a>
     <a onclick="myAccFunc('demoAcc')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
       Flyers <i class="fa fa-caret-down"></i>
@@ -32,27 +33,25 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       </a>
       <div id="demoAcc2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
         <a href="{{ url_for('metro') }}" class="w3-bar-item w3-button">Metro</a>
-        <a href="#" class="w3-bar-item w3-button">Superstore</a>
-        <a href="#" class="w3-bar-item w3-button">Sobeys</a>
-        <a href="#" class="w3-bar-item w3-button">No Frills</a>
+        <a href="{{ url_for('superstore') }}" class="w3-bar-item w3-button">Superstore</a>
+        <a href="{{ url_for('sobeys') }}" class="w3-bar-item w3-button">Sobeys</a>
+        <a href="{{ url_for('no_frills') }}" class="w3-bar-item w3-button">No Frills</a>
       </div>
       <a onclick="myAccFunc('demoAcc3')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
         Technology <i class="fa fa-caret-down"></i>
       </a>
       <div id="demoAcc3" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-        <a href="#" class="w3-bar-item w3-button">The Source</a>
-        <a href="#" class="w3-bar-item w3-button">Newegg</a>
-        <a href="#" class="w3-bar-item w3-button">Best Buy</a>
-        <a href="#" class="w3-bar-item w3-button">Dell</a>
+        <a href="{{ url_for('newegg') }}" class="w3-bar-item w3-button">Newegg</a>
+        <a href="{{ url_for('bestbuy') }}" class="w3-bar-item w3-button">Best Buy</a>
+        <a href="{{ url_for('dell') }}" class="w3-bar-item w3-button">Dell</a>
 
       </div>
       <a onclick="myAccFunc('demoAcc4')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
         Furniture/Hardware <i class="fa fa-caret-down"></i>
       </a>
       <div id="demoAcc4" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-        <a href="#" class="w3-bar-item w3-button">Ikea</a>
-        <a href="#" class="w3-bar-item w3-button">Home Hardware</a>
-        <a href="#" class="w3-bar-item w3-button">Home Depot</a>
+        <a href="{{ url_for('ikea') }}" class="w3-bar-item w3-button">Ikea</a>
+        <a href="{{ url_for('homehardware') }}" class="w3-bar-item w3-button">Home Hardware</a>
       </div>
     </div>
     <a href="{{ url_for('thePass') }}" class="w3-bar-item w3-button">The Pass</a>
@@ -70,5 +69,41 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<script>
+// Accordion 
+function myAccFunc(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+function myAccFunc2(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
+
+
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+</script>
 </body>
 </html>
