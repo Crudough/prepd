@@ -95,9 +95,9 @@ def dell():
 	return render_template('flyer.html', store=store, images=images, 
 							names=names, length=len(images))
 
-@app.route('/newegg-flyer')
+@app.route('/staples-flyer')
 def newegg():
-	store = 'Newegg Canada'
+	store = 'Staples Canada'
 	j = prepd_tools.get_JSON('english', 'staples', 'M9B4J6')
 	images = prepd_tools.get_img(j)
 	names = prepd_tools.get_name(j)
